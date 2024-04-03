@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
-<DOCKTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-">
@@ -32,13 +32,17 @@
 						
 						<form action="#" method="post">
 							<div class="mb-3">
-								<label class="form-label">Email address</label> <input required
+								<label class="form-label">Email address</label> <label>
+								<input required
 									name="email" type="email" class="form-control">
+							</label>
 							</div>
 
 							<div class="mb-3">
-								<label class="form-label">Password</label> <input required
+								<label class="form-label">Password</label> <label>
+								<input required
 									name="password" type="password" class="form-control">
+							</label>
 							</div>
 
 							<button type="submit" class="btn bg-success text-white col-md-12">Login</button>
