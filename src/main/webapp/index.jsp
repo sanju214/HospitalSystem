@@ -1,5 +1,7 @@
+<%@ page import="com.db.DbConnect" %>
+<%@ page import="java.sql.Connection" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+		 pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +11,29 @@
 
 
 <style type="text/css">
+
 .paint-card {
-	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	transition: box-shadow 0.3s ease;
 }
+
+.paint-card:hover {
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+	color: #333;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+.card-text {
+	color: #666;
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
 </style>
 
 
@@ -19,7 +41,9 @@
 
 <body>
 	<%@include file="component/navbar.jsp"%>
-
+	<% Connection conn = DbConnect.getConn();
+	out.print(conn);
+	%>
 	<div id="carouselExampleIndicators" class="carousel slide"
 		data-bs-ride="true">
 		<div class="carousel-indicators">
@@ -141,31 +165,6 @@
 			</div>
 		</div>
 	</div>
-
-	<style>
-	.paint-card {
-		border-radius: 10px;
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-		transition: box-shadow 0.3s ease;
-	}
-
-	.paint-card:hover {
-		box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-	}
-
-	.card-title {
-		color: #333;
-		font-size: 1.2rem;
-		font-weight: bold;
-	}
-
-	.card-text {
-		color: #666;
-		font-size: 1rem;
-		line-height: 1.5;
-	}
-
-</style>
 
 <%@include file="component/footer.jsp" %>
 

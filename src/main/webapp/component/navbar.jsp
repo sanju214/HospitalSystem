@@ -32,6 +32,7 @@
 		margin-right: 10px;
 	}
 	.nav-item a.nav-link.active:hover {
-		color: #17a2b8; /* Change this to the color you prefer */
+		color: #17a2b8;
 	}
+
 </style>

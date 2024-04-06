@@ -1,4 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,14 +37,23 @@
 		.btn {
 			border-radius: 5px;
 		}
-
-		.bg-success {
-			background-color: #28a745;
+		.success-message {
+			background-color: #d4edda;
+			color: #155724;
+			border: 1px solid #c3e6cb;
+			padding: 10px;
+			margin-bottom: 10px;
 		}
 
-		.text-white {
-			color: #fff;
+		.error-message {
+			background-color: #f8d7da;
+			color: #721c24;
+			border: 1px solid #f5c6cb;
+			padding: 10px;
+			margin-bottom: 10px;
 		}
+
+
 	</style>
 </head>
 <body>
@@ -54,7 +65,18 @@
 			<div class="card">
 				<div class="card-body">
 					<h4 class="mb-4 text-center">Admin Login</h4>
-					<form action="#" method="post">
+
+					<c:if test="${not empty sucMsg }">
+						<div class="success-message">${sucMsg}</div>
+						<c:remove var = "sucMsg" scope="session"/>
+					</c:if>
+
+					<c:if test="${not empty errorMsg }">
+						<div class="error-message">${errorMsg}</div>
+						<c:remove var = "errorMsg" scope="session"/>
+					</c:if>
+
+					<form action="adminLogin" method="post">
 						<div class="mb-3">
 							<label for="email" class="form-label">Email address</label>
 							<input required id="email" name="email" type="email" class="form-control">
