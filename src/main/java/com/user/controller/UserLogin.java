@@ -1,8 +1,8 @@
-package com.user.servlet;
+package com.user.controller;
 
 import com.dao.UserDao;
 import com.db.DbConnect;
-import com.entity.User;
+import com.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +15,7 @@ import java.io.IOException;
 @WebServlet("/userLogin")
 public class UserLogin extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             String email = req.getParameter("email");
             String password = req.getParameter("password");

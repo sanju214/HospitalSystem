@@ -1,4 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,6 +88,7 @@
 							<input required id="password" name="password" type="password" class="form-control">
 						</div>
 						<button type="submit" class="btn btn-success col-md-12">Login</button>
+						<input type="hidden" name="loginType" value="admin">
 					</form>
 
 					<div class="mt-3 text-center">

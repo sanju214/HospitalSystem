@@ -16,7 +16,7 @@
                                             aria-current="page" href="doctor_login.jsp">Doctor Login</a></li>
 
                     <li class="nav-item"><a class="nav-link active"
-                                            aria-current="page" href="#">Book an Appointment</a></li>
+                                            aria-current="page" href="user_appointment.jsp">Book an Appointment</a></li>
 
                     <li class="nav-item"><a class="nav-link active"
                                             aria-current="page" href="user_login.jsp">User Login</a></li>
@@ -25,19 +25,20 @@
 
                 <c:if test="${not empty userObj}">
                     <li class="nav-item"><a class="nav-link active"
-                                            aria-current="page" href="#">Appointment</a></li>
+                                            aria-current="page" href="user_appointment.jsp">Book an Appointment</a></li>
                     <li class="nav-item"><a class="nav-link active"
-                                            aria-current="page" href="#">View Appointment</a></li>
+                                            aria-current="page" href="view_appointment.jsp">View Appointment</a></li>
 
                     <div class="dropdown">
-                        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-solid fa-circle-user"></i>${userObj.fullName}
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">Change Password</a></li>
+                            <li><a class="dropdown-item" href="change_password.jsp">Change Password</a></li>
                             <li><a class="dropdown-item" href="userLogout">Logout</a></li>
                         </ul>
                     </div>
+
                 </c:if>
             </ul>
         </div>

@@ -1,3 +1,6 @@
+<%@ page import="com.dao.DoctorDao" %>
+<%@ page import="javax.print.Doc" %>
+<%@ page import="com.db.DbConnect" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -36,6 +39,21 @@
             font-size: 3rem;
             margin-bottom: 10px; /* Adjust margin */
         }
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
 
     </style>
 </head>
@@ -58,26 +76,29 @@
         <c:remove var="errorMsg" scope="session"/>
     </c:if>
 
-    <div class="row">
+    <% DoctorDao dao = new DoctorDao(DbConnect.getConn()); %>
+
+        <div
+        class="row">
         <div class="col-md-4">
             <div class="card paint-card">
                 <i class="fas fa-user-md card-icon"></i>
                 <p class="card-title text-center">Doctors</p>
-                <p class="card-body text-center">Total: 5</p>
+                <p class="card-body text-center">Total: <%=dao.countDoctor()%></p>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card paint-card">
                 <i class="fas fa-user-circle card-icon"></i>
                 <p class="card-title text-center">Users</p>
-                <p class="card-body text-center">Total: 43</p>
+                <p class="card-body text-center">Total:  <%=dao.countUser()%></p>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card paint-card">
                 <i class="far fa-calendar-check card-icon"></i>
                 <p class="card-title text-center">Total Appointments</p>
-                <p class="card-body text-center">Total: 5</p>
+                <p class="card-body text-center">Total:  <%=dao.countAppointment()%></p>
             </div>
         </div>
 
@@ -85,11 +106,39 @@
             <div class="card paint-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <i class="far fa-calendar-check card-icon"></i>
                 <p class="card-title text-center">Specialists</p>
-                <p class="card-body text-center">Total: 34</p>
+                <p class="card-body text-center">Total:  <%=dao.countSpecialist()%></p>
             </div>
         </div>
     </div>
 
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="../addSpecialist" method="post">
+
+                    <div class="form-group">
+                        <label>Enter Specialist Name</label>
+                        <input type="text" name="specName" class="form-control">
+                    </div>
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 </body>

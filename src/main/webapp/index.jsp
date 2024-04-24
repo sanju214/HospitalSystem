@@ -33,6 +33,9 @@
 	font-size: 1rem;
 	line-height: 1.5;
 }
+.card-body img {
+	height: 400px; /* Adjust the height as needed */
+}
 
 </style>
 
@@ -41,9 +44,6 @@
 
 <body>
 	<%@include file="component/navbar.jsp"%>
-	<% Connection conn = DbConnect.getConn();
-	out.print(conn);
-	%>
 	<div id="carouselExampleIndicators" class="carousel slide"
 		data-bs-ride="true">
 		<div class="carousel-indicators">
@@ -139,7 +139,7 @@
 			<div class="col-md-3 mb-4">
 				<div class="card paint-card">
 					<div class="card-body text-center">
-						<img src="img/doc6.jpg" class="img-fluid" alt="Nimit Mann">
+						<img src="img/suit3.png" class="img-fluid" alt="Nimit Mann">
 						<p class="fw-bold fs-5">Nimit Mann</p>
 						<p class="fs-7">CEO & Chairman</p>
 					</div>
@@ -148,7 +148,7 @@
 			<div class="col-md-3 mb-4">
 				<div class="card paint-card">
 					<div class="card-body text-center">
-						<img src="img/doc7.jpg" class="img-fluid" alt="Sanjay Padmaraju Varma">
+						<img src="img/suit4.png" class="img-fluid" alt="Sanjay Padmaraju Varma">
 						<p class="fw-bold fs-5">Sanjay Padmaraju Varma</p>
 						<p class="fs-7">Chief Doctor</p>
 					</div>
@@ -157,8 +157,8 @@
 			<div class="col-md-3 mb-4">
 				<div class="card paint-card">
 					<div class="card-body text-center">
-						<img src="img/doc8.jpeg" class="img-fluid" alt="Nitsh R">
-						<p class="fw-bold fs-5">Nitsh R</p>
+						<img src="img/doc8.jpeg" class="img-fluid" alt="Nitish R">
+						<p class="fw-bold fs-5">Nitish R</p>
 						<p class="fs-7">Chief Doctor</p>
 					</div>
 				</div>
